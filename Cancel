@@ -1,0 +1,24 @@
+package Module2.Thread.Time;
+
+
+import java.util.Scanner;
+
+public class Cancel implements Runnable {
+    private Thread thread;
+
+    public Cancel(Thread thread) {
+        this.thread = thread;
+    }
+
+    public void run() {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Для прерывания введите \'Y\'");
+        String e = scan.nextLine();
+        char exit = e.charAt(0);
+
+        if (exit == 'y' || exit == 'Y') {
+            thread.interrupt();
+        }
+    }
+}
